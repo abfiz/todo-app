@@ -1,6 +1,9 @@
 // middleware/errorhandler.js
 
-export default (err, req, res, next) => {
-  console.error('🔴 Error:', err.stack || err.message);
-  res.status(500).send('Something went wrong!');
-};
+function errorHandler(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).render('error', { error: err });
+}
+
+module.exports = errorHandler;
+
