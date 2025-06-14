@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= username %>'s Tasks</title>
+</head>
+<body>
+  <h2>Hello, <%= username %>!</h2>
+  <a href="/logout">Logout</a>
+
+  <h3>Create Task</h3>
+  <form action="/tasks" method="POST">
+    <input type="text" name="title" placeholder="Task title" required />
+    <button type="submit">Add</button>
+  </form>
+
+  <h3>Filter</h3>
+  <a href="/tasks">All</a> |
+  <a href="/tasks?filter=pending">Pending</a> |
+  <a href="/tasks?filter=completed">Completed</a>
+
+  <h3>Your Tasks</h3>
+  <ul>
+    <% if (tasks.length === 0) { %>
+      <p>No tasks yet.</p>
+    <% } else { %>
+      <% tasks.forEach(task => { %>
+        <li>
+          <strong><%= task.title %></strong> - <%= task.status %>
+          <% if (task.status === 'pending') { %>
+            | <a href="/tasks/<%= task._id %>/update?action=complete">Mark as completed</a>
+          <% } %>
+          <% if (task.status !== 'deleted') { %>
+            | <a href="/tasks/<%= task._id %>/update?action=delete">Delete</a>
+          <% } %>
+        </li>
+      <% }) %>
+    <% } %>
+  </ul>
+</body>
+</html>
