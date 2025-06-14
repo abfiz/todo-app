@@ -10,7 +10,8 @@ dotenv.config();
 
 const authRoutes = require('./routes/auth');
 const taskRoutes = require('./routes/task');
-const errorHandler = require('./middleware/errorhandler').default; // 
+const errorHandler = require('./middleware/errorhandler');
+ // 
 
 const app = express();
 
