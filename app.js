@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const authRoutes = require('./routes/auth');
-const taskRoutes = require('./routes/tasks');
+const taskRoutes = require('./routes/task');
 const errorHandler = require('./middleware/errorhandler').default; // 
 
 const app = express();
