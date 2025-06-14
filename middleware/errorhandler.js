@@ -1,9 +1,10 @@
 // middleware/errorhandler.js
 
 function errorHandler(err, req, res, next) {
-  console.error(err.stack);
-  res.status(500).render('error', { error: err });
+  console.error('❌ Error Handler:', err.stack);
+  res.status(500).send('Something broke!');
 }
 
 module.exports = errorHandler;
+
 
