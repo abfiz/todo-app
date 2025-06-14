@@ -11,6 +11,8 @@ dotenv.config();
 const authRoutes = require('./routes/auth');
 const taskRoutes = require('./routes/task');
 const errorHandler = require('./middleware/errorhandler');
+console.log('TYPE OF errorHandler:', typeof errorHandler);
+
  // 
 
 const app = express();
